@@ -1,70 +1,70 @@
-# Getting Started with Create React App
+# BRXM Development Environment
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This repository contains a React application built with Bloomreach SDK components for the BRXM development environment. It includes the Farnell-style commerce experience, a Top Tech Voices experience, and a mock API fallback so the app can still render when the Bloomreach delivery endpoint is unavailable.
+
+## What this project does
+
+- Renders Bloomreach pages through `@bloomreach/react-sdk`.
+- Maps Bloomreach component names to local React implementations in `src/components`.
+- Supports a Farnell experience with reusable blocks such as the header, hero, product section, trust strip, and footer.
+- Includes a Top Tech Voices page and preview content for that experience.
+- Falls back to mock data when the configured Bloomreach endpoint cannot be reached.
+
+## Prerequisites
+
+- Node.js 18 or newer
+- npm
+
+## Install
+
+```bash
+npm install
+```
 
 ## Available Scripts
 
-In the project directory, you can run:
-
 ### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Runs the app in development mode.
+Open [http://localhost:3000](http://localhost:3000) in your browser.
 
 ### `npm test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Runs the test suite in watch mode.
 
 ### `npm run build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Creates a production build in the `build` folder.
 
 ### `npm run eject`
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+Removes the Create React App abstraction and copies the build configuration into the project. This is permanent.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Project Structure
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+- `src/App.js` bootstraps the Bloomreach page renderer and mock API fallback.
+- `src/components/farnell` contains the Farnell page sections and shared BRXM mappings.
+- `src/components/top-tech-voice` contains the Top Tech Voices page and preview assets.
+- `src/services/mockApi.js` provides the fallback API client used when the live endpoint is not reachable.
+- `public/top-tech-voices-preview.html` provides a preview page for the Top Tech Voices experience.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## Configuration Notes
 
-## Learn More
+The Bloomreach endpoint is configured in `src/App.js`:
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+```text
+https://developers.bloomreach.io/delivery/site/v1/channels/brxm-development-env/pages
+```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+If you point this project at another channel, update the endpoint and any related component mappings in `src/App.js`.
 
-### Code Splitting
+## Usage
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+1. Install dependencies with `npm install`.
+2. Start the app with `npm start`.
+3. Open the local site and browse to the path published in Bloomreach.
+4. If the live endpoint is not available, the app automatically shows the mock API fallback banner.
 
-### Analyzing the Bundle Size
+## Build Output
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+The production build is generated in `build/`. That directory is ignored by default because it is a generated artifact.
