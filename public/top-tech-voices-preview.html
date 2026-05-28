@@ -1,0 +1,1017 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Top Tech Voices - Page Preview</title>
+  <style>
+    :root {
+      --ink: #12233d;
+      --muted: #56657d;
+      --line: #dfe5ef;
+      --accent: #0b5fff;
+      --accent-strong: #102d57;
+      --bg-soft: #f5f7fb;
+      --warning: #fff4dd;
+      --warning-border: #f1d18a;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif;
+      color: var(--ink);
+      background: #fff;
+      line-height: 1.55;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    .ttv-page {
+      width: min(1440px, 100%);
+      margin: 0 auto;
+      overflow-x: hidden;
+    }
+
+    .ttv-hero {
+      padding: 64px 40px 72px;
+      color: #fff;
+      background:
+        radial-gradient(circle at 18% 22%, rgba(255,255,255,0.12), transparent 28%),
+        linear-gradient(140deg, #5f6ff0 0%, #6b4a9a 55%, #3e2b63 100%);
+      text-align: center;
+    }
+
+    .ttv-eyebrow {
+      display: inline-block;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      margin-bottom: 18px;
+      opacity: 0.95;
+    }
+
+    .ttv-hero h1 {
+      font-size: clamp(2.1rem, 4vw, 3.6rem);
+      line-height: 1.03;
+      margin-bottom: 14px;
+      max-width: 48ch;
+      margin-left: auto;
+      margin-right: auto;
+      font-weight: 800;
+      letter-spacing: -0.01em;
+    }
+
+    .ttv-hero h2 {
+      font-size: clamp(1rem, 1.6vw, 1.15rem);
+      line-height: 1.4;
+      max-width: 56ch;
+      margin: 0 auto 18px;
+      font-weight: 400;
+      opacity: 0.95;
+    }
+
+    .ttv-copy {
+      font-size: 1.05rem;
+      max-width: 920px;
+      margin: 0 auto 34px;
+      color: rgba(255, 255, 255, 0.92);
+    }
+
+    .ttv-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 48px;
+      padding: 0 28px;
+      border-radius: 999px;
+      background: #fff;
+      color: var(--accent-strong);
+      font-weight: 700;
+      text-decoration: none;
+      box-shadow: 0 16px 35px rgba(9, 20, 44, 0.2);
+    }
+
+    .ttv-section {
+      padding: 68px 40px;
+    }
+
+    .ttv-section.alt {
+      background: var(--bg-soft);
+    }
+
+    .ttv-section-head {
+      text-align: center;
+      margin-bottom: 34px;
+    }
+
+    .ttv-section-head h3 {
+      font-size: clamp(1.65rem, 2.5vw, 2.3rem);
+      margin-bottom: 10px;
+      letter-spacing: -0.02em;
+    }
+
+    .ttv-section-head p {
+      color: var(--muted);
+      font-size: 1rem;
+    }
+
+    .ttv-host-card {
+      display: grid;
+      grid-template-columns: 240px minmax(0, 1fr);
+      gap: 28px;
+      align-items: center;
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      padding: 26px;
+      box-shadow: 0 12px 30px rgba(18, 35, 61, 0.06);
+    }
+
+    .ttv-host-card img,
+    .ttv-speaker-card img,
+    .ttv-product-image {
+      width: 100%;
+      object-fit: cover;
+      border-radius: 18px;
+    }
+
+    .ttv-host-card img {
+      aspect-ratio: 1 / 1;
+    }
+
+    .ttv-host-card h3 {
+      font-size: 1.7rem;
+      margin-bottom: 6px;
+    }
+
+    .ttv-meta {
+      color: var(--accent);
+      font-weight: 700;
+      margin-bottom: 14px;
+    }
+
+    .ttv-speaker-grid,
+    .ttv-topic-grid,
+    .ttv-logo-grid,
+    .ttv-product-grid {
+      display: grid;
+      gap: 20px;
+    }
+
+    .ttv-speaker-grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      margin-top: 22px;
+    }
+
+    .ttv-speaker-card {
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      padding: 18px;
+      box-shadow: 0 8px 20px rgba(18, 35, 61, 0.05);
+    }
+
+    .ttv-speaker-card img {
+      aspect-ratio: 1 / 1;
+      margin-bottom: 14px;
+    }
+
+    .ttv-speaker-card h4,
+    .ttv-topic-card h4,
+    .ttv-product-tab-body h4 {
+      font-size: 1.05rem;
+      margin-bottom: 6px;
+    }
+
+    .ttv-speaker-card p,
+    .ttv-topic-card p,
+    .ttv-product-tab-body p {
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .ttv-tabs {
+      padding-top: 74px;
+    }
+
+    .ttv-tab-nav {
+      display: flex;
+      flex-wrap: nowrap;
+      justify-content: center;
+      gap: 12px;
+      margin-bottom: 28px;
+      overflow-x: auto;
+      padding: 6px 8px;
+    }
+
+    .ttv-tab-btn {
+      appearance: none;
+      border: 1px solid transparent;
+      background: #fff;
+      color: var(--ink);
+      border-radius: 16px;
+      min-width: 54px;
+      min-height: 44px;
+      padding: 8px 18px;
+      font-weight: 800;
+      cursor: pointer;
+      transition: transform 0.12s ease, background 0.12s ease, color 0.12s ease, box-shadow 0.12s ease;
+      box-shadow: 0 6px 18px rgba(18,35,61,0.04);
+    }
+
+    .ttv-tab-btn[aria-selected="true"] {
+      background: linear-gradient(180deg, var(--ink), #0a2036);
+      color: #fff;
+      box-shadow: 0 12px 30px rgba(9,20,44,0.18);
+      transform: translateY(-3px);
+    }
+
+    .ttv-tab-btn:hover {
+      transform: translateY(-1px);
+    }
+
+    .ttv-tab-panel {
+      display: none;
+    }
+
+    .ttv-tab-panel.is-active {
+      display: block;
+    }
+
+    .ttv-episode-overview {
+      display: grid;
+      grid-template-columns: repeat(6, minmax(0, 1fr));
+      gap: 14px;
+      margin-bottom: 26px;
+    }
+
+    .ttv-episode-overview-item {
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      background: #fff;
+      padding: 12px 10px;
+      box-shadow: 0 8px 22px rgba(18, 35, 61, 0.04);
+      text-align: center;
+    }
+
+    .ttv-episode-overview-item .ttv-topic-number {
+      font-size: 1.5rem;
+      margin-bottom: 8px;
+    }
+
+    .ttv-episode-overview-item h4 {
+      font-size: 0.95rem;
+      margin-bottom: 4px;
+    }
+
+    .ttv-episode-overview-item span {
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+
+    .ttv-product-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .ttv-product-tab {
+      overflow: hidden;
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      box-shadow: 0 12px 32px rgba(18, 35, 61, 0.08);
+    }
+
+    .ttv-product-image {
+      aspect-ratio: 16 / 9;
+      border-radius: 8px 8px 0 0;
+      width: 100%;
+      display: block;
+      object-fit: cover;
+    }
+
+    .ttv-product-tab-body {
+      padding: 18px 20px 22px;
+    }
+
+    .ttv-product-tab-body a {
+      display: inline-block;
+      margin-top: 8px;
+      color: var(--accent);
+      text-decoration: none;
+      font-weight: 700;
+    }
+
+    .ttv-availability {
+      display: inline-flex;
+      align-items: center;
+      min-height: 32px;
+      padding: 0 12px;
+      margin-top: 10px;
+      border-radius: 999px;
+      background: var(--warning);
+      border: 1px solid var(--warning-border);
+      color: #845400;
+      font-size: 0.85rem;
+      font-weight: 700;
+    }
+
+    .ttv-unavailable {
+      opacity: 0.72;
+    }
+
+    .ttv-topic-grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .ttv-topic-card {
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      padding: 22px;
+      box-shadow: 0 8px 20px rgba(18, 35, 61, 0.05);
+      text-align: center;
+    }
+
+    .ttv-topic-number {
+      font-size: 2rem;
+      font-weight: 800;
+      color: var(--accent);
+      line-height: 1;
+      margin-bottom: 10px;
+    }
+
+    .ttv-featured .ttv-featured-wrap {
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      padding: 28px;
+      box-shadow: 0 12px 30px rgba(18, 35, 61, 0.06);
+    }
+
+    .ttv-featured h4 {
+      margin: 22px 0 14px;
+      font-size: 1.05rem;
+    }
+
+    .ttv-featured ul {
+      padding-left: 18px;
+      margin-bottom: 20px;
+    }
+
+    .ttv-platforms {
+      text-align: center;
+    }
+
+    .ttv-pill-row {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 12px;
+    }
+
+    .ttv-pill-row a {
+      display: inline-flex;
+      align-items: center;
+      min-height: 42px;
+      padding: 0 18px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      background: #fff;
+      text-decoration: none;
+      font-weight: 700;
+      color: var(--ink);
+    }
+
+    .ttv-logo-grid {
+      grid-template-columns: repeat(6, minmax(0, 1fr));
+    }
+
+    .ttv-logo-item {
+      min-height: 120px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 18px;
+      box-shadow: 0 8px 20px rgba(18, 35, 61, 0.05);
+    }
+
+    .ttv-logo-item img {
+      max-height: 48px;
+      width: auto;
+      object-fit: contain;
+    }
+
+    /* Header / footer */
+    .ttv-header {
+      position: sticky;
+      top: 0;
+      background: #fff;
+      border-bottom: 1px solid var(--line);
+      z-index: 60;
+    }
+
+    .ttv-header-inner {
+      width: min(1440px, 100%);
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 14px 40px;
+    }
+
+    .ttv-logo {
+      font-weight: 800;
+      color: var(--ink);
+      text-decoration: none;
+      font-size: 1.15rem;
+    }
+
+    .ttv-nav a { margin-left: 18px; color: var(--muted); text-decoration: none; font-weight:700 }
+
+    footer.ttv-footer { padding: 28px 40px; text-align:center; color:var(--muted); font-size:0.95rem; }
+
+    /* Play overlay */
+    .ttv-product-tab { position: relative; }
+    .ttv-play-overlay {
+      position: absolute; inset: 0; display:flex; align-items:center; justify-content:center; pointer-events:none;
+    }
+    .ttv-play-btn {
+      pointer-events: auto;
+      width:64px; height:64px; border-radius:50%; background: rgba(11,95,255,0.92); display:inline-grid; place-items:center; color:#fff; border: 4px solid rgba(255,255,255,0.12);
+      box-shadow: 0 12px 28px rgba(9, 20, 44, 0.25);
+      cursor: pointer;
+      transition: transform 0.12s ease;
+    }
+    .ttv-play-btn:hover { transform: translateY(-3px) scale(1.02) }
+
+    /* Modal player */
+    .ttv-modal {
+      position: fixed; inset: 0; display: none; align-items: center; justify-content: center; background: rgba(3,10,20,0.6); z-index: 120;
+      padding: 28px;
+    }
+    .ttv-modal.is-open { display: flex }
+    .ttv-modal-dialog { width: min(1100px, 98%); background: #000; border-radius: 10px; overflow: hidden; box-shadow: 0 30px 80px rgba(2,6,23,0.6); }
+    .ttv-modal-close { position: absolute; top: 22px; right: 26px; background: rgba(255,255,255,0.06); color: #fff; border: none; width: 44px; height: 44px; border-radius: 999px; cursor: pointer }
+    .ttv-modal-iframe { width: 100%; height: 62vh; border: 0; display: block; }
+
+    /* Episode layout: video left, content right */
+    .ttv-episode-layout {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 24px;
+      align-items: start;
+    }
+
+    .ttv-episode-video {
+      position: sticky;
+      top: 120px;
+    }
+
+    .ttv-episode-content {
+      padding-top: 6px;
+    }
+
+    .ttv-episode-content .ttv-section-head {
+      margin-bottom: 18px;
+    }
+
+    .ttv-episode-content .ttv-product-grid {
+      grid-template-columns: 1fr;
+      gap: 16px;
+    }
+
+    .ttv-episode-content .ttv-product-tab {
+      display: flex;
+      flex-direction: row;
+      gap: 12px;
+      padding: 0;
+    }
+
+    .ttv-episode-content .ttv-product-image {
+      width: 100px;
+      height: 100px;
+      aspect-ratio: 1;
+      flex-shrink: 0;
+      border-radius: 8px;
+    }
+
+    .ttv-episode-content .ttv-product-tab-body {
+      flex: 1;
+      padding: 0;
+    }
+
+    .ttv-episode-content .ttv-product-tab-body h4 {
+      font-size: 0.95rem;
+      margin-bottom: 4px;
+    }
+
+    .ttv-episode-content .ttv-product-tab-body p {
+      font-size: 0.85rem;
+      line-height: 1.4;
+    }
+
+    @media (max-width: 1080px) {
+      .ttv-episode-layout {
+        grid-template-columns: 1fr;
+      }
+
+      .ttv-episode-video {
+        position: relative;
+        top: 0;
+      }
+    }
+
+    .ttv-unlock-note {
+      display: block;
+      margin-top: 8px;
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 1200px) {
+      .ttv-speaker-grid,
+      .ttv-product-grid,
+      .ttv-topic-grid,
+      .ttv-logo-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 760px) {
+      .ttv-hero,
+      .ttv-section {
+        padding-left: 20px;
+        padding-right: 20px;
+      }
+
+      .ttv-host-card {
+        grid-template-columns: 1fr;
+      }
+
+      .ttv-speaker-grid,
+      .ttv-product-grid,
+      .ttv-topic-grid,
+      .ttv-logo-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+  </style>
+</head>
+<body>
+  <header class="ttv-header" role="banner">
+    <div class="ttv-header-inner">
+      <a href="#" class="ttv-logo">Farnell</a>
+      <nav class="ttv-nav" aria-label="Main navigation">
+        <a href="#">Products</a>
+        <a href="#">Insights</a>
+        <a href="#">Support</a>
+      </nav>
+    </div>
+  </header>
+  <div class="ttv-page">
+    <section class="ttv-hero">
+      <p class="ttv-eyebrow">Building the technology of tomorrow</p>
+      <h1>Our award-winning podcast returns for Season 2</h1>
+      <h2>Hear insights from top experts on how technology serves people</h2>
+      <p class="ttv-copy">For the next three months, we invite you to embark on a new six-episode journey to explore how technology serves people. Innovation matters most when it improves lives, protects what’s important, and solves real human challenges.</p>
+      <a class="ttv-btn" href="https://www.youtube.com/user/element14" target="_blank" rel="noreferrer">Watch on YouTube</a>
+    </section>
+
+    <section class="ttv-section alt">
+      <div class="ttv-host-card">
+        <img src="https://uk.farnell.com/wcsstore/ExtendedSitesCatalogAssetStore/cms/asset/images/common/landing/top-tech-voices-season-two/ttv-speaker-carousel/ttv-speaker-01.jpg" alt="Georgia Lewis Anderson" loading="lazy" />
+        <div>
+          <h3>Georgia Lewis Anderson</h3>
+          <p class="ttv-meta">AI consultant and prompt engineering specialist</p>
+          <p>Georgia Lewis Anderson is a leading AI consultant and prompt engineering specialist known for work with major technology companies and for translating complex technical topics into practical, human-centered insights. With a background in journalism and broadcasting, she is uniquely positioned to translate complex technological concepts into actionable insights.</p>
+        </div>
+      </div>
+
+      <div class="ttv-speaker-grid">
+        <article class="ttv-speaker-card">
+          <img src="https://uk.farnell.com/wcsstore/ExtendedSitesCatalogAssetStore/cms/asset/images/common/landing/top-tech-voices-season-two/ttv-speaker-carousel/ttv-speaker-01.jpg" alt="Dr Jack Lewis" loading="lazy" />
+          <h4>Dr Jack Lewis</h4>
+          <p>Mental Health and Technology</p>
+        </article>
+        <article class="ttv-speaker-card">
+          <img src="https://uk.farnell.com/wcsstore/ExtendedSitesCatalogAssetStore/cms/asset/images/common/landing/top-tech-voices-season-two/ttv-speaker-carousel/ttv-speaker-02.jpg" alt="Fionn Ferreira" loading="lazy" />
+          <h4>Fionn Ferreira</h4>
+          <p>Sustainable Tech: Innovations for a Greener Planet</p>
+        </article>
+        <article class="ttv-speaker-card">
+          <img src="https://uk.farnell.com/wcsstore/ExtendedSitesCatalogAssetStore/cms/asset/images/common/landing/top-tech-voices-season-two/ttv-speaker-carousel/ttv-speaker-03.jpg" alt="Prof. Anil Seth" loading="lazy" />
+          <h4>Prof. Anil Seth</h4>
+          <p>Neuro-Tech and Brain Interfaces</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="ttv-section ttv-tabs">
+      <div class="ttv-section-head">
+        <h3>Episode videos</h3>
+        <p>Select an episode tab to watch the related video and see when later episodes unlock.</p>
+      </div>
+
+      <div class="ttv-tab-nav" role="tablist" aria-label="Top Tech Voices episodes">
+        <button class="ttv-tab-btn" role="tab" aria-selected="true" data-tab="episode-01">01</button>
+        <button class="ttv-tab-btn" role="tab" aria-selected="false" data-tab="episode-02">02</button>
+        <button class="ttv-tab-btn" role="tab" aria-selected="false" data-tab="episode-03">03</button>
+        <button class="ttv-tab-btn" role="tab" aria-selected="false" data-tab="episode-04">04</button>
+        <button class="ttv-tab-btn" role="tab" aria-selected="false" data-tab="episode-05">05</button>
+        <button class="ttv-tab-btn" role="tab" aria-selected="false" data-tab="episode-06">06</button>
+      </div>
+
+      <div class="ttv-episode-overview" aria-label="Episode overview">
+        <article class="ttv-episode-overview-item">
+          <p class="ttv-topic-number">01</p>
+          <h4>Mental Health &amp; Technology</h4>
+          <span>Dr Jack Lewis</span>
+        </article>
+        <article class="ttv-episode-overview-item">
+          <p class="ttv-topic-number">02</p>
+          <h4>Sustainable Tech</h4>
+          <span>Fionn Ferreira</span>
+        </article>
+        <article class="ttv-episode-overview-item">
+          <p class="ttv-topic-number">03</p>
+          <h4>Neuro-Tech and Brain Interfaces</h4>
+          <span>Prof. Anil Seth</span>
+        </article>
+        <article class="ttv-episode-overview-item">
+          <p class="ttv-topic-number">04</p>
+          <h4>Biohacking &amp; Human Enhancement</h4>
+          <span>Dr Julia Jones</span>
+        </article>
+        <article class="ttv-episode-overview-item">
+          <p class="ttv-topic-number">05</p>
+          <h4>Work-Tech Life Balance</h4>
+          <span>Available from 28 Apr 2026</span>
+        </article>
+        <article class="ttv-episode-overview-item">
+          <p class="ttv-topic-number">06</p>
+          <h4>Smart Cities and Urban Tech</h4>
+          <span>Available from 19 May 2026</span>
+        </article>
+      </div>
+
+      <div class="ttv-tab-panel is-active" id="episode-01" role="tabpanel" aria-label="Episode 01 video">
+        <div class="ttv-episode-layout">
+          <div class="ttv-episode-video">
+            <article class="ttv-product-tab">
+              <img class="ttv-product-image" src="https://uk.farnell.com/wcsstore/ExtendedSitesCatalogAssetStore/cms/asset/images/common/landing/top-tech-voices-season-two/ttv-speaker-carousel/ttv-speaker-01.jpg" alt="Mental Health & Technology video" loading="lazy" />
+              <div class="ttv-product-tab-body">
+                <h4>Mental Health & Technology</h4>
+                <p>Episode 01 featuring Dr Jack Lewis. Watch the full conversation about wellbeing and technology.</p>
+                <a href="https://www.youtube.com/user/element14" target="_blank" rel="noreferrer">Watch video</a>
+              </div>
+            </article>
+          </div>
+          <div class="ttv-episode-content">
+            <div class="ttv-section-head"><h3>Recommended products</h3></div>
+            <div class="ttv-product-grid">
+              <article class="ttv-product-tab"><img class="ttv-product-image" src="https://uk.farnell.com/wcsstore/ExtendedSitesCatalogAssetStore/cms/asset/images/common/landing/top-tech-voices-season-two/prod-tab/eps-1/ttv-s2-prod-eps-1-murata.jpg" alt="Wi-Fi 6E/Bluetooth" /><div class="ttv-product-tab-body"><h4>Wi-Fi 6E/Bluetooth Combo Module Type 2FY</h4><p>Compact, high-performance module based on the CYW55513 combo chipset.</p><a href="https://uk.farnell.com/c/wireless-modules-adaptors/communications-networking-modules/wlan-modules-usb-adaptors?st=LBEE5HY2FY" target="_blank">View product</a></div></article>
+              <article class="ttv-product-tab"><img class="ttv-product-image" src="https://uk.farnell.com/wcsstore/ExtendedSitesCatalogAssetStore/cms/asset/images/common/landing/top-tech-voices-season-two/prod-tab/eps-1/ttv-s2-prod-eps-1-nordic.jpg" alt="NPM2100-EK" /><div class="ttv-product-tab-body"><h4>NPM2100-EK</h4><p>Evaluation board for the nPM2100 power management IC.</p><a href="https://uk.farnell.com/nordic-semiconductor/npm2100-ek/eval-brd-primary-non-rechargeable/dp/4689984" target="_blank">View product</a></div></article>
+              <article class="ttv-product-tab"><img class="ttv-product-image" src="https://uk.farnell.com/wcsstore/ExtendedSitesCatalogAssetStore/cms/asset/images/common/landing/top-tech-voices-season-two/prod-tab/eps-1/ttv-s2-prod-eps-1-wurth.jpg" alt="WE-BMS Transformer" /><div class="ttv-product-tab-body"><h4>WE-BMS Transformer</h4><p>Transformer for battery management systems with integrated common mode choke.</p><a href="https://uk.farnell.com/c/transformers/smps-transformers?brand=wurth-elektronik&product-range=we-bms-series" target="_blank">View product</a></div></article>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="ttv-tab-panel" id="episode-02" role="tabpanel" aria-label="Episode 02 video">
+        <div class="ttv-episode-layout">
+          <div class="ttv-episode-video">
+            <article class="ttv-product-tab">
+              <img class="ttv-product-image" src="https://uk.farnell.com/wcsstore/ExtendedSitesCatalogAssetStore/cms/asset/images/common/landing/top-tech-voices-season-two/ttv-speaker-carousel/ttv-speaker-02.jpg" alt="Sustainable Tech video" loading="lazy" />
+              <div class="ttv-product-tab-body">
+                <h4>Sustainable Tech</h4>
+                <p>Episode 02 featuring Fionn Ferreira and practical ideas for a greener planet.</p>
+                <a href="https://www.youtube.com/user/element14" target="_blank" rel="noreferrer">Watch video</a>
+              </div>
+            </article>
+          </div>
+          <div class="ttv-episode-content">
+            <div class="ttv-section-head"><h3>Recommended products</h3><p>Coming soon</p></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="ttv-tab-panel" id="episode-03" role="tabpanel" aria-label="Episode 03 video">
+        <div class="ttv-episode-layout">
+          <div class="ttv-episode-video">
+            <article class="ttv-product-tab">
+              <img class="ttv-product-image" src="https://uk.farnell.com/wcsstore/ExtendedSitesCatalogAssetStore/cms/asset/images/common/landing/top-tech-voices-season-two/ttv-speaker-carousel/ttv-speaker-03.jpg" alt="Neuro-Tech and Brain Interfaces video" loading="lazy" />
+              <div class="ttv-product-tab-body">
+                <h4>Neuro-Tech and Brain Interfaces</h4>
+                <p>Episode 03 featuring Prof. Anil Seth and the future of brain interfaces.</p>
+                <a href="https://www.youtube.com/user/element14" target="_blank" rel="noreferrer">Watch video</a>
+              </div>
+            </article>
+          </div>
+          <div class="ttv-episode-content">
+            <div class="ttv-section-head"><h3>Recommended products</h3></div>
+            <div class="ttv-product-grid">
+              <article class="ttv-product-tab"><img class="ttv-product-image" src="https://uk.farnell.com/wcsstore/ExtendedSitesCatalogAssetStore/cms/asset/images/common/landing/top-tech-voices-season-two/prod-tab/eps-3/ttv-s2-prod-eps-3-power-integrations.jpg" alt="TinySwitch-5" /><div class="ttv-product-tab-body"><h4>TinySwitch-5</h4><p>Integrated off-line switcher with EcoSmart technology.</p><a href="https://uk.farnell.com/c/semiconductors-ics/power-management-ics-pmic/ac-dc-off-line-converters?st=TinySwitch-5" target="_blank">View product</a></div></article>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="ttv-tab-panel" id="episode-04" role="tabpanel" aria-label="Episode 04 video">
+        <div class="ttv-episode-layout">
+          <div class="ttv-episode-video">
+            <article class="ttv-product-tab">
+              <img class="ttv-product-image" src="https://uk.farnell.com/wcsstore/ExtendedSitesCatalogAssetStore/cms/asset/images/common/landing/top-tech-voices-season-two/ttv-speaker-carousel/ttv-speaker-01.jpg" alt="Biohacking and Human Enhancement video" loading="lazy" />
+              <div class="ttv-product-tab-body">
+                <h4>Biohacking &amp; Human Enhancement</h4>
+                <p>Episode 04 with Dr Julia Jones and the science behind healthier routines.</p>
+                <a href="https://www.youtube.com/user/element14" target="_blank" rel="noreferrer">Watch video</a>
+              </div>
+            </article>
+          </div>
+          <div class="ttv-episode-content">
+            <div class="ttv-section-head"><h3>Recommended products</h3></div>
+            <div class="ttv-product-grid">
+              <article class="ttv-product-tab"><img class="ttv-product-image" src="https://uk.farnell.com/wcsstore/ExtendedSitesCatalogAssetStore/cms/asset/images/common/landing/top-tech-voices-season-two/prod-tab/eps-4/ttv-s2-prod-eps-4-adi.jpg" alt="ADIN1100" /><div class="ttv-product-tab-body"><h4>ADIN1100</h4><p>Low power, single port, 10BASE-T1L transceiver for industrial Ethernet applications.</p><a href="https://uk.farnell.com/analog-devices/adin1100bcpz/ethernet-transceiver-10mbps-lfcsp/dp/4026119" target="_blank">View product</a></div></article>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="ttv-tab-panel" id="episode-05" role="tabpanel" aria-label="Episode 05 video">
+        <div class="ttv-episode-layout">
+          <div class="ttv-episode-video">
+            <article class="ttv-product-tab ttv-unavailable">
+              <img class="ttv-product-image" src="https://uk.farnell.com/wcsstore/ExtendedSitesCatalogAssetStore/cms/asset/images/common/landing/top-tech-voices-season-two/ttv-speaker-carousel/ttv-speaker-03.jpg" alt="Work-Tech Life Balance video" loading="lazy" />
+              <div class="ttv-product-tab-body">
+                <h4>Work-Tech Life Balance</h4>
+                <p>Episode 05 featuring Dr Anne-Laure Le Cunff.</p>
+                <span class="ttv-availability">Available from 28 Apr 2026</span>
+              </div>
+            </article>
+          </div>
+          <div class="ttv-episode-content">
+            <div class="ttv-section-head"><h3>Recommended products</h3><p>Available soon</p></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="ttv-tab-panel" id="episode-06" role="tabpanel" aria-label="Episode 06 video">
+        <div class="ttv-episode-layout">
+          <div class="ttv-episode-video">
+            <article class="ttv-product-tab ttv-unavailable">
+              <img class="ttv-product-image" src="https://uk.farnell.com/wcsstore/ExtendedSitesCatalogAssetStore/cms/asset/images/common/landing/top-tech-voices-season-two/ttv-speaker-carousel/ttv-speaker-02.jpg" alt="Smart Cities and Urban Tech video" loading="lazy" />
+              <div class="ttv-product-tab-body">
+                <h4>Smart Cities and Urban Tech</h4>
+                <p>Episode 06 closes the season with connected city innovation.</p>
+                <span class="ttv-availability">Available from 19 May 2026</span>
+              </div>
+            </article>
+          </div>
+          <div class="ttv-episode-content">
+            <div class="ttv-section-head"><h3>Recommended products</h3></div>
+            <div class="ttv-product-grid">
+              <article class="ttv-product-tab"><img class="ttv-product-image" src="https://uk.farnell.com/wcsstore/ExtendedSitesCatalogAssetStore/cms/asset/images/common/landing/top-tech-voices-season-two/prod-tab/eps-4/ttv-s2-prod-eps-4-ni.jpg" alt="NI PXI Platform" /><div class="ttv-product-tab-body"><h4>NI PXI Platform</h4><p>Flexible and scalable platform to transform test systems.</p><a href="https://uk.farnell.com/ni-pxi-systems" target="_blank">View product</a></div></article>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="ttv-section">
+      <div class="ttv-section-head">
+        <h3>Episode topics</h3>
+        <p>Season 2 timeline and availability</p>
+      </div>
+      <div class="ttv-topic-grid">
+        <article class="ttv-topic-card"><p class="ttv-topic-number">01</p><h4>Mental Health &amp; Technology</h4></article>
+        <article class="ttv-topic-card"><p class="ttv-topic-number">02</p><h4>Sustainable Tech</h4></article>
+        <article class="ttv-topic-card"><p class="ttv-topic-number">03</p><h4>Neuro-Tech and Brain Interfaces</h4></article>
+        <article class="ttv-topic-card"><p class="ttv-topic-number">04</p><h4>Biohacking &amp; Human Enhancement</h4></article>
+        <article class="ttv-topic-card"><p class="ttv-topic-number">05</p><h4>Work-Tech Life Balance</h4><span class="ttv-unlock-note">Available from 28 Apr 2026</span></article>
+        <article class="ttv-topic-card"><p class="ttv-topic-number">06</p><h4>Smart Cities and Urban Tech</h4><span class="ttv-unlock-note">Available from 19 May 2026</span></article>
+      </div>
+    </section>
+
+    <section class="ttv-section alt ttv-featured">
+      <div class="ttv-featured-wrap">
+        <div class="ttv-section-head">
+          <h3>Biohacking and Human Enhancement: Redefining Our Limits</h3>
+          <p>Dr Julia Jones</p>
+        </div>
+        <p class="ttv-copy" style="color: var(--muted); max-width: 980px; margin-bottom: 12px;">Dr Julia Jones is a psychologist and neuroscientist with over 30 years of experience studying habits, behavior, and wellbeing, combining science and practical biohacking approaches for healthier, more resilient lifestyles.</p>
+        <h4>In this episode you will learn about</h4>
+        <ul>
+          <li>How music and sound can shape emotional state and performance.</li>
+          <li>Why healthspan still lags behind lifespan despite medical progress.</li>
+          <li>Why behavior change tools fail without strong accountability.</li>
+          <li>How to bridge the gap between wellness data and real habits.</li>
+        </ul>
+        <a href="https://uk.farnell.com/dr-julia-jones-biohacking-and-human-enhancement?ICID=I-CT-LP-TOPTECHVOICES-YOUTUBE_PODCAST-S2-EPS4-TRANSCRIPTION-WF4139832" target="_blank" rel="noreferrer">Get an overview of the topics covered within the interview</a>
+      </div>
+    </section>
+
+    <section class="ttv-section ttv-platforms">
+      <div class="ttv-section-head">
+        <h3>Our Top Tech Voices series is available on</h3>
+      </div>
+      <div class="ttv-pill-row">
+        <a href="https://www.youtube.com/user/element14" target="_blank" rel="noreferrer">YouTube</a>
+        <a href="https://open.spotify.com/show/2nuPIADj0I483miQZfqQgV" target="_blank" rel="noreferrer">Spotify</a>
+        <a href="https://www.instagram.com/farnell_electronics/" target="_blank" rel="noreferrer">Instagram</a>
+        <a href="https://www.linkedin.com/company/farnell-electronics" target="_blank" rel="noreferrer">LinkedIn</a>
+        <a href="https://www.facebook.com/FarnellElectronics" target="_blank" rel="noreferrer">Facebook</a>
+        <a href="https://x.com/Farnell_Avnet" target="_blank" rel="noreferrer">X</a>
+      </div>
+    </section>
+
+    <section class="ttv-section alt">
+      <div class="ttv-section-head">
+        <h3>Discover our top tech manufacturers</h3>
+        <p>Together with our top manufacturers, we prepared special offers for each episode.</p>
+      </div>
+      <div class="ttv-logo-grid">
+        <div class="ttv-logo-item"><img src="https://uk.farnell.com/wcsstore/ExtendedSitesCatalogAssetStore/cms/asset/images/common/manufacturer_logos/large/analog-devices-l.gif" alt="Analog Devices" loading="lazy" /></div>
+        <div class="ttv-logo-item"><img src="https://uk.farnell.com/wcsstore/ExtendedSitesCatalogAssetStore/cms/asset/images/common/manufacturer_logos/large/avnet-l.gif" alt="Avnet" loading="lazy" /></div>
+        <div class="ttv-logo-item"><img src="https://uk.farnell.com/wcsstore/ExtendedSitesCatalogAssetStore/cms/asset/images/common/manufacturer_logos/large/micron-l.gif" alt="Micron" loading="lazy" /></div>
+        <div class="ttv-logo-item"><img src="https://uk.farnell.com/wcsstore/ExtendedSitesCatalogAssetStore/cms/asset/images/common/manufacturer_logos/large/murata-l.gif" alt="Murata" loading="lazy" /></div>
+        <div class="ttv-logo-item"><img src="https://uk.farnell.com/wcsstore/ExtendedSitesCatalogAssetStore/cms/asset/images/common/manufacturer_logos/large/ni-l.gif" alt="NI" loading="lazy" /></div>
+        <div class="ttv-logo-item"><img src="https://uk.farnell.com/wcsstore/ExtendedSitesCatalogAssetStore/cms/asset/images/common/manufacturer_logos/large/nordic-l.gif" alt="Nordic Semiconductor" loading="lazy" /></div>
+      </div>
+    </section>
+  </div>
+
+  <footer class="ttv-footer">© Farnell — Top Tech Voices (preview)</footer>
+
+  <script>
+    // Tab behaviour: single active panel, date-based unlocking, keyboard nav
+    (function () {
+      const buttons = Array.from(document.querySelectorAll('.ttv-tab-btn'));
+      const panels = Array.from(document.querySelectorAll('.ttv-tab-panel'));
+      const today = new Date();
+
+      function parseAvailabilityText(text) {
+        if (!text) return null;
+        const m = text.match(/(\d{1,2} \w{3} \d{4})/);
+        if (!m) return null;
+        const parsed = new Date(m[1]);
+        return isNaN(parsed) ? null : parsed;
+      }
+
+      // Determine availability per panel by reading any availability label inside it
+      const availabilityMap = {};
+      panels.forEach((panel) => {
+        const availEl = panel.querySelector('.ttv-availability, .ttv-unlock-note');
+        const text = availEl ? availEl.textContent.trim() : '';
+        const date = parseAvailabilityText(text);
+        availabilityMap[panel.id] = date ? (today >= date) : true;
+      });
+
+      // Initialize tab buttons: disable and visually mark those not yet available
+      buttons.forEach((btn) => {
+        const target = btn.dataset.tab;
+        const isAvailable = availabilityMap[target] !== false; // default true
+        if (!isAvailable) {
+          btn.setAttribute('aria-disabled', 'true');
+          btn.classList.add('ttv-unavailable');
+        } else {
+          btn.setAttribute('aria-disabled', 'false');
+        }
+      });
+
+      function activateTab(targetId) {
+        buttons.forEach((b) => b.setAttribute('aria-selected', b.dataset.tab === targetId ? 'true' : 'false'));
+        panels.forEach((p) => p.classList.toggle('is-active', p.id === targetId));
+      }
+
+      // pick first available episode as initial
+      const firstAvailable = panels.find((p) => availabilityMap[p.id]) || panels[0];
+      if (firstAvailable) activateTab(firstAvailable.id);
+
+      buttons.forEach((button, idx) => {
+        button.addEventListener('click', (e) => {
+          if (button.getAttribute('aria-disabled') === 'true') {
+            // simple focus feedback for locked episodes
+            button.blur();
+            return;
+          }
+          activateTab(button.dataset.tab);
+        });
+
+        // keyboard navigation
+        button.addEventListener('keydown', (ev) => {
+          if (ev.key === 'ArrowRight') {
+            ev.preventDefault();
+            let i = idx + 1;
+            while (i < buttons.length && buttons[i].getAttribute('aria-disabled') === 'true') i++;
+            if (i < buttons.length) buttons[i].focus();
+          } else if (ev.key === 'ArrowLeft') {
+            ev.preventDefault();
+            let i = idx - 1;
+            while (i >= 0 && buttons[i].getAttribute('aria-disabled') === 'true') i--;
+            if (i >= 0) buttons[i].focus();
+          } else if (ev.key === 'Enter' || ev.key === ' ') {
+            ev.preventDefault();
+            button.click();
+          }
+        });
+      });
+
+      // Enhance watch links: open in new tab and mark unavailable panels
+      panels.forEach((panel) => {
+        const isAvailable = availabilityMap[panel.id];
+        const watchLink = panel.querySelector('a');
+        if (watchLink) {
+          if (!isAvailable) {
+            watchLink.remove();
+          } else {
+            // ensure it opens in new tab
+            watchLink.setAttribute('target', '_blank');
+            watchLink.setAttribute('rel', 'noreferrer');
+          }
+        }
+        // visually mark unavailable content
+        if (!isAvailable) {
+          panel.querySelectorAll('.ttv-product-tab').forEach((tab) => tab.classList.add('ttv-unavailable'));
+        }
+      });
+      // add play overlay button for each episode card
+      // create a modal player in the DOM
+      const modal = document.createElement('div');
+      modal.className = 'ttv-modal';
+      modal.innerHTML = `
+        <div class="ttv-modal-dialog" role="dialog" aria-modal="true">
+          <button class="ttv-modal-close" aria-label="Close player">✕</button>
+          <iframe class="ttv-modal-iframe" src="" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe>
+        </div>`;
+      document.body.appendChild(modal);
+      const modalIframe = modal.querySelector('.ttv-modal-iframe');
+      const modalClose = modal.querySelector('.ttv-modal-close');
+
+      function openModalWithUrl(url) {
+        // transform youtube watch URL to embed if possible
+        try {
+          const u = new URL(url);
+          let embed = url;
+          if (u.hostname.includes('youtube.com') && u.searchParams.get('v')) {
+            embed = `https://www.youtube.com/embed/${u.searchParams.get('v')}?autoplay=1`;
+          } else if (u.hostname === 'youtu.be') {
+            const id = u.pathname.slice(1);
+            embed = `https://www.youtube.com/embed/${id}?autoplay=1`;
+          }
+          modalIframe.src = embed;
+          modal.classList.add('is-open');
+        } catch (err) {
+          window.open(url, '_blank', 'noopener');
+        }
+      }
+
+      modalClose.addEventListener('click', () => {
+        modal.classList.remove('is-open');
+        modalIframe.src = '';
+      });
+
+      panels.forEach((panel) => {
+        const article = panel.querySelector('.ttv-product-tab');
+        if (!article) return;
+        const watchLink = panel.querySelector('a');
+        const overlay = document.createElement('div');
+        overlay.className = 'ttv-play-overlay';
+        const btn = document.createElement('button');
+        btn.className = 'ttv-play-btn';
+        btn.setAttribute('aria-label', 'Play episode');
+        btn.innerHTML = '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M8 5v14l11-7-11-7z" fill="currentColor"/></svg>';
+        overlay.appendChild(btn);
+        article.appendChild(overlay);
+        if (watchLink && panel.querySelector('.ttv-product-tab').classList.contains('ttv-unavailable') === false) {
+          btn.addEventListener('click', (e) => {
+            openModalWithUrl(watchLink.href);
+          });
+        } else {
+          btn.setAttribute('disabled', '');
+          btn.style.opacity = '0.6';
+        }
+      });
+    })();
+  </script>
+</body>
+</html>
